@@ -31,6 +31,7 @@ const CompanionComponent = ({
 
   const [isMuted, setIsMuted] = useState(false);
   const [messages, setMessages] = useState<SavedMessage[]>([]);
+  2
 
   useEffect(() => {
     if (lottieRef) {
@@ -111,7 +112,7 @@ const CompanionComponent = ({
         <div className="companion-section">
           <div
             className="companion-avatar"
-            style={{ backgroundColor: getSubjectColor(subject) }}
+            style={{ backgroundColor:   getSubjectColor(subject) }}
           >
             <div
               className={cn(
