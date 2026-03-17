@@ -43,7 +43,7 @@ Installation
 Clone the repository:
 
 Bash
-git clone https://github.com/Sakib669/saas-app
+git clone https://github.com/Sakib669/saas-app.git
 cd ai-companion
 Install dependencies:
 
