@@ -4,10 +4,9 @@ interface Props {}
 
 const Subscription = ({}: Props) => {
   return (
-    <div>
-      Subscription
+    <main>
       <PricingTable />
-    </div>
+    </main>
   );
 };
 

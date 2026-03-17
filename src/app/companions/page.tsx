@@ -13,7 +13,6 @@ const CompanionsLibrary = async ({ searchParams }: SearchParams) => {
 
   const companions = await getAllCompanions({ subject, topic });
 
-  console.log(companions);
 
   return (
     <main>
