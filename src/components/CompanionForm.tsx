@@ -116,7 +116,7 @@ const CompanionForm = ({}: Props) => {
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid}>
-              <FieldLabel>What should the companion hep whith?</FieldLabel>
+              <FieldLabel>What should the companion help with?</FieldLabel>
               <Textarea
                 {...field}
                 placeholder="e.g. Derivatives & Integral"
