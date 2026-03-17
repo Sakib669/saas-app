@@ -54,15 +54,16 @@ VAPI_API_KEY=your_vapi_api_key
 
 ---
 
-📁 Project Structure
+## 📂 Project Structure
+
+```directory
 SAAS-APP/
 ├── 📁 .clerk/            # Clerk authentication configurations
-├── 📁 .next/             # Next.js build output (Generated)
-├── 📁 node_modules/      # Project dependencies
 ├── 📁 public/            # Static assets (icons, images, svgs)
 ├── 📁 src/
 │   ├── 📁 app/           # Next.js App Router (Pages, Layouts & API routes)
 │   ├── 📁 components/    # Reusable UI components (shadcn/ui & custom)
 │   ├── 📁 constants/     # Static data, site config & constants
-│   ├── 📁 lib/           # Core utilities (Supabase, Vapi config, helper functions)
-└── 📁 types/         # TypeScript type 
+│   ├── 📁 lib/           # Core utilities (Supabase, Vapi config, helpers)
+│   ├── 📁 types/         # TypeScript type definitions and interfaces
+└──── 📄 proxy.ts       # Proxy configuration or helper
