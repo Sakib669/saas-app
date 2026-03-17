@@ -1,81 +1,68 @@
-🤖 AI Companion - Real-time AI Voice Tutor
-An interactive AI-powered SaaS application that allows users to have real-time voice conversations with specialized AI tutors (Companions). Built with Next.js 15, Vapi AI, Supabase, and Clerk.
+# 🤖 AI Companion - Real-time AI Voice Tutor
 
-🚀 Features
-Real-time Voice Interaction: Seamless, low-latency voice conversations using Vapi AI.
+An interactive AI-powered SaaS application that allows users to have real-time voice conversations with specialized AI tutors (Companions). Built with **Next.js 15**, **Vapi AI**, **Supabase**, and **Clerk**.
 
-Custom AI Companions: Create and customize tutors with specific subjects, topics, and conversation styles.
+---
 
-Persistent Memory: Each companion remembers its context and teaching guidelines.
+## 🚀 Features
 
-Session History: Track and view previous learning sessions and companions.
+* **Real-time Voice Interaction:** Seamless, low-latency voice conversations using Vapi AI.
+* **Custom AI Companions:** Create and customize tutors with specific subjects, topics, and conversation styles.
+* **Persistent Memory:** Each companion remembers its context and teaching guidelines.
+* **Session History:** Track and view previous learning sessions and companions.
+* **Secure Authentication:** User management and protected routes via Clerk.
+* **Modern UI/UX:** Responsive design built with Tailwind CSS and Shadcn UI.
+* **Database & Storage:** Reliable data management with Supabase.
 
-Secure Authentication: User management and protected routes via Clerk.
+---
 
-Modern UI/UX: Responsive design built with Tailwind CSS and Shadcn UI.
+## 🛠️ Tech Stack
 
-Database & Storage: Reliable data management with Supabase.
+* **Framework:** Next.js 15 (App Router)
+* **Styling:** Tailwind CSS, Shadcn UI
+* **Authentication:** Clerk
+* **Database:** Supabase (PostgreSQL)
+* **AI/Voice Engine:** Vapi AI
+* **Language:** TypeScript
 
-🛠️ Tech Stack
-Framework: Next.js 15 (App Router)
-
-Styling: Tailwind CSS, Shadcn UI
-
-Authentication: Clerk
-
-Database: Supabase (PostgreSQL)
-
-AI/Voice Engine: Vapi AI
-
-Language: TypeScript
-
+---
 🏁 Getting Started
 Prerequisites
-Node.js 18+ installed
+* Node.js 18+ installed
 
-A Supabase account and project
+* A Supabase account and project
 
-A Clerk account
+* A Clerk account
 
-A Vapi AI account
+* A Vapi AI account
 
-Installation
-Clone the repository:
+---
 
-Bash
-git clone https://github.com/Sakib669/saas-app.git
-cd ai-companion
-Install dependencies:
-
-Bash
-npm install
-Set up Environment Variables:
-Create a .env.local file in the root directory and add the following:
-
-Code snippet
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
+# Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
+CLERK_SECRET_KEY=your_secret_key
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
-NEXT_PUBLIC_VAPI_PUBLIC_KEY=
-VAPI_API_KEY=
-Run the development server:
+# Vapi AI
+NEXT_PUBLIC_VAPI_PUBLIC_KEY=your_vapi_public_key
+VAPI_API_KEY=your_vapi_api_key
 
-Bash
-npm run dev
-Open http://localhost:3000 in your browser.
+---
 
 📁 Project Structure
-/src/app - Next.js App Router (Pages & API routes)
-
-/src/components - Reusable UI components
-
-/src/lib - Utility functions, Supabase client, and Vapi configuration
-
-/src/constants - Static data and configuration constants
-
-/public - Static assets (icons, images)
+SAAS-APP/
+├── 📁 .clerk/            # Clerk authentication configurations
+├── 📁 .next/             # Next.js build output (Generated)
+├── 📁 node_modules/      # Project dependencies
+├── 📁 public/            # Static assets (icons, images, svgs)
+├── 📁 src/
+│   ├── 📁 app/           # Next.js App Router (Pages, Layouts & API routes)
+│   ├── 📁 components/    # Reusable UI components (shadcn/ui & custom)
+│   ├── 📁 constants/     # Static data, site config & constants
+│   ├── 📁 lib/           # Core utilities (Supabase, Vapi config, helper functions)
+└── 📁 types/         # TypeScript type 
