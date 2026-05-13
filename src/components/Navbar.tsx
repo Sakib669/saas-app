@@ -21,7 +21,7 @@ const Navbar = ({}: Props) => {
               <button className="btn-signin">Sign In</button>
             </SignInButton>
             <SignUpButton>
-              <button className="btn-signin">Sign In</button>
+              <button className="btn-signin">Sign Up</button>
             </SignUpButton>
           </div>
         </Show>
