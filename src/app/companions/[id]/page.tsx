@@ -11,12 +11,12 @@ interface Props {
 
 const CompanionSession = async ({ params }: Props) => {
   const { id } = await params;
-  const { name, subject, topic, title, duration } = await getCompanion(id);
   const companion = await getCompanion(id);
   const user = await currentUser();
 
   if (!user) redirect("/sign-in");
-  if (!name) redirect("/companionss");
+  if (!companion || !companion.name) redirect("/companions");
+  const { name, subject, topic, duration } = companion;
 
   return (
     <main>
