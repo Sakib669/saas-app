@@ -57,8 +57,8 @@ const CompanionForm = ({}: Props) => {
     if (companion) {
       redirect(`/companions/${companion.id}`);
     } else {
-      console.log("Failed to create a companion");
-      redirect('/')
+      console.error("Failed to create a companion"); // Use console.error for errors
+      // No redirect, error should be handled in UI (e.g., show a toast)
     }
   }
 
