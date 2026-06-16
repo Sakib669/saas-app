@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import soundwaves from "../constants/soundwaves.json";
 import { addToSessionHistory } from "@/lib/actions/companions";
+import { MessageTypeEnum } from "@/types/vapi.d";
 
 enum CallStatus {
     INACTIVE = 'INACTIVE',
@@ -79,14 +80,16 @@ const CompanionComponent = ({ companionId, subject, topic, name, userName, userI
     const handleCall = async () => {
         setCallStatus(CallStatus.CONNECTING)
 
-        const assistantOverrides = {
+        const assistantOverrides: {
+            variableValues: { subject: string; topic: string; style: string };
+            clientMessages: MessageTypeEnum[];
+            serverMessages: any[]; // Retaining 'any[]' as exact type from SDK is not directly available
+        } = {
             variableValues: { subject, topic, style },
-            clientMessages: ["transcript"],
+            clientMessages: [MessageTypeEnum.TRANSCRIPT],
             serverMessages: [],
-        }
-
-        // @ts-expect-error
-        vapi.start(configureAssistant(voice, style), assistantOverrides)
+        };
+        vapi.start(configureAssistant(voice, style), assistantOverrides);
     }
 
     const handleDisconnect = () => {
