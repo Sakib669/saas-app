@@ -2,6 +2,16 @@
 
 import { auth } from "@clerk/nextjs/server";
 import { createSupabaseClient } from "../supabase";
+import * as z from "zod";
+
+const createCompanionSchema = z.object({
+  name: z.string().min(1, "Companion is required"),
+  subject: z.string().min(1, "Subject is required"),
+  topic: z.string().min(1, "Topic is required"),
+  voice: z.string().min(1, "Voice is required"),
+  style: z.string().min(1, "Style is required"),
+  duration: z.coerce.number().min(1, "Duration is required"),
+});
 
 export const createCompanion = async (formData: CreateCompanion) => {
   const { userId: author } = await auth();
@@ -10,11 +20,14 @@ export const createCompanion = async (formData: CreateCompanion) => {
     throw new Error("Unauthorized");
   }
 
+  // Server-side validation
+  const validatedData = createCompanionSchema.parse(formData);
+
   const supabase = createSupabaseClient();
 
   const { data, error } = await supabase
     .from("companions")
-    .insert({ ...formData, author })
+    .insert({ ...validatedData, author }) // Use validatedData
     .select();
 
   if (error || !data) {
