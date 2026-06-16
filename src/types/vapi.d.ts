@@ -1,4 +1,4 @@
-enum MessageTypeEnum {
+export enum MessageTypeEnum {
   TRANSCRIPT = "transcript",
   FUNCTION_CALL = "function-call",
   FUNCTION_CALL_RESULT = "function-call-result",
