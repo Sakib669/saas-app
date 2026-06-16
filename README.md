@@ -1,6 +1,6 @@
 # 🤖 AI Companion - Real-time AI Voice Tutor
 
-An interactive AI-powered SaaS application that allows users to have real-time voice conversations with specialized AI tutors (Companions). Built with **Next.js 15**, **Vapi AI**, **Supabase**, and **Clerk**.
+* An interactive AI-powered SaaS application that allows users to have real-time voice conversations with specialized AI tutors (Companions). Built with **Next.js 16**, **Vapi AI**, **Supabase**, and **Clerk**.
 
 ---
 
@@ -18,12 +18,14 @@ An interactive AI-powered SaaS application that allows users to have real-time v
 
 ## 🛠️ Tech Stack
 
-* **Framework:** Next.js 15 (App Router)
+* **Framework:** Next.js 16 (App Router)
 * **Styling:** Tailwind CSS, Shadcn UI
 * **Authentication:** Clerk
 * **Database:** Supabase (PostgreSQL)
 * **AI/Voice Engine:** Vapi AI
 * **Language:** TypeScript
+* **Validation:** Zod
+* **Animations:** Lottie
 
 ---
 🏁 Getting Started
@@ -46,11 +48,10 @@ NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 
 # Supabase
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_publishable_default_key
 
 # Vapi AI
-NEXT_PUBLIC_VAPI_PUBLIC_KEY=your_vapi_public_key
-VAPI_API_KEY=your_vapi_api_key
+NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_web_token
 
 ---
 
@@ -66,4 +67,3 @@ SAAS-APP/
 │   ├── 📁 constants/     # Static data, site config & constants
 │   ├── 📁 lib/           # Core utilities (Supabase, Vapi config, helpers)
 │   ├── 📁 types/         # TypeScript type definitions and interfaces
-└──── 📄 proxy.ts       # Proxy configuration or helper
