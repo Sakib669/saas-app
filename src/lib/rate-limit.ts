@@ -3,13 +3,12 @@ import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { auth } from "@clerk/nextjs/server";
 
-// Create a single Redis client (reused across calls)
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL!,
   token: process.env.UPSTASH_REDIS_REST_TOKEN!,
 });
 
-// Define limiters for different action types
+// Define the limiters with clear prefixes for isolation
 export const limiters = {
   createCompanion: new Ratelimit({
     redis,
@@ -39,9 +38,19 @@ export async function checkRateLimit(action: RateLimitAction) {
 
   if (!success) {
     throw new Error(
-      `Rate limit exceeded. Limit: ${limit}, Retry after ${new Date(reset).toISOString()}`
+      `Rate limit exceeded. Limit: ${limit}, Retry after ${new Date(reset).toISOString()}`,
     );
   }
-
   return { success, remaining };
+}
+
+// Higher-order function to wrap read operations cleanly
+export function withRateLimit<T extends (...args: any[]) => Promise<any>>(
+  action: RateLimitAction,
+  fn: T,
+): T {
+  return (async (...args: Parameters<T>) => {
+    await checkRateLimit(action);
+    return fn(...args);
+  }) as T;
 }
